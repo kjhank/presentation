@@ -26,6 +26,7 @@
       height: auto;
       max-height: 100%;
       touch-action: none;
+      transition: transform 0.4s;
     }
 
     &--1 {

@@ -41,7 +41,7 @@ export default class Game {
         const newX = initialX + deltaX;
         const newY = initialY + deltaY;
 
-        target.style.transform = `translate(${newX}px, ${newY}px)`;
+        target.style.transform = `translate(${newX}px, ${newY}px) scale(1.2)`;
 
         target.setAttribute('data-x', newX);
         target.setAttribute('data-y', newY);
