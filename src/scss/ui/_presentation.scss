@@ -19,7 +19,7 @@
 [data-dragging] {
   z-index: 3;
   filter: brightness(1.5);
-  box-shadow: 0 15px 15px 5px rgba(#000, 0.5);
+  box-shadow: 0 15px 15px 5px rgba(#000, 0.75);
 
   & > img {
     transform: scale(1.2);
