@@ -28,7 +28,8 @@ export default class Game {
         target.removeAttribute('data-dragging');
       },
       onmove: (event) => {
-        const { dx: deltaX,
+        const {
+          dx: deltaX,
           dy: deltaY,
           target,
         } = event;
