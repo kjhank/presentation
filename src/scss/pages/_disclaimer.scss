@@ -1,0 +1,10 @@
+.disclaimer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__message {
+    width: 891.5px;
+    height: 594.5px;
+  }
+}

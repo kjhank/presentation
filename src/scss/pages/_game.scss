@@ -1,0 +1,195 @@
+.game {
+  $this: &!default;
+
+  position: relative;
+
+  &__symptoms {
+    position: relative;
+    top: 39px;
+    right: 132px;
+    left: 132px;
+    width: 760px;
+    height: 40%;
+  }
+
+  &__symptom {
+    position: absolute;
+    z-index: 2;
+    height: 66px;
+    touch-action: none;
+    border-radius: 20px;
+    transition: box-shadow 0.4s, filter 0.4s;
+
+    &-image {
+      width: auto;
+      max-width: 100%;
+      height: auto;
+      max-height: 100%;
+      touch-action: none;
+    }
+
+    &--1 {
+      left: 127px;
+    }
+
+    &--2 {
+      left: 256px;
+    }
+
+    &--3 {
+      left: 383.5px;
+    }
+
+    &--4 {
+      left: 510px;
+    }
+
+    &--5 {
+      left: 637.5px;
+    }
+
+    &--6,
+    &--7,
+    &--8,
+    &--9,
+    &--10 {
+      top: 70px;
+    }
+
+    &--6 {
+      left: 50px;
+    }
+
+    &--7 {
+      left: 178px;
+    }
+
+    &--8 {
+      left: 304.5px;
+    }
+
+    &--9 {
+      left: 432.5px;
+    }
+
+    &--10 {
+      left: 560px;
+    }
+
+    &--11,
+    &--12,
+    &--13,
+    &--14,
+    &--15,
+    &--16 {
+      top: 140px;
+    }
+
+    &--12 {
+      left: 126.5px;
+    }
+
+    &--13 {
+      left: 255px;
+    }
+
+    &--14 {
+      left: 382.5px;
+    }
+
+    &--15 {
+      left: 512px;
+    }
+
+    &--16 {
+      left: 640px;
+    }
+
+    &--17 {
+      top: 210px;
+      left: 242.5px;
+    }
+  }
+
+  &__baskets {
+    position: absolute;
+    right: 107.5px;
+    bottom: 62px;
+    left: 112.5px;
+    z-index: 1;
+    height: 50%;
+  }
+
+  &__basket {
+    position: absolute;
+    width: 344px;
+    height: 300px;
+    background-size: cover;
+    transition: filter 0.4s;
+
+    &--asthma {
+      bottom: 0;
+      left: 0;
+    }
+
+    &--codp {
+      right: 0;
+      bottom: 0;
+    }
+  }
+
+  &__grass {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 4;
+    width: 100%;
+    height: 354.5px;
+    pointer-events: none;
+  }
+
+  &__instructions {
+    position: absolute;
+    bottom: 0;
+    left: 125px;
+    z-index: 5;
+    width: 792px;
+    height: 276.5px;
+    pointer-events: none;
+  }
+
+  &__congrats {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    opacity: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    transition: opacity 0.4s;
+    transition-delay: 0.2s;
+
+    &-box {
+      width: 684.5px;
+      height: 640px;
+      transition: transform 0.4s;
+      transform: scale(0) rotate(-360deg);
+    }
+
+    &--active {
+      z-index: 5;
+      opacity: 1;
+
+      #{$this}__congrats-box {
+        transform: scale(1) rotate(0);
+      }
+    }
+  }
+}

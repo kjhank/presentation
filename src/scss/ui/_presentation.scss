@@ -1,0 +1,35 @@
+[data-current] {
+  z-index: 3;
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+[data-previous] {
+  z-index: 2;
+  opacity: 0;
+  transform: translate3d(-100%, 0, 0);
+}
+
+[data-next] {
+  z-index: 2;
+  opacity: 0;
+  transform: translate3d(100%, 0, 0);
+}
+
+[data-dragging] {
+  z-index: 3;
+  filter: brightness(1.5);
+  box-shadow: 0 5px 15px 5px rgba(#000, 0.5);
+}
+
+[data-mouseover] {
+  filter: brightness(1.2);
+}
+
+[data-correct] {
+  box-shadow: 0 0 5px 5px rgb(123, 255, 0);
+}
+
+[data-incorrect] {
+  box-shadow: 0 0 5px red;
+}
