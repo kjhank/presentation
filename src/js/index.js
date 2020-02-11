@@ -1,5 +1,5 @@
 import Game from './game';
 import Navigation from './navigation';
 
-const draganddrop = new Game();
-const nacigation = new Navigation();
+const game = new Game();
+const navigation = new Navigation(game);

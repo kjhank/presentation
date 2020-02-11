@@ -41,7 +41,7 @@ export default class Game {
         const newX = initialX + deltaX;
         const newY = initialY + deltaY;
 
-        target.style.transform = `translate(${newX}px, ${newY}px) scale(1.2)`;
+        target.style.transform = `translate(${newX}px, ${newY}px)`;
 
         target.setAttribute('data-x', newX);
         target.setAttribute('data-y', newY);
@@ -94,11 +94,21 @@ export default class Game {
 
     if (this.score === this.items.length) {
       this.congratsDialog.classList.add(active);
-      this.reset();
     }
   }
 
   reset() {
+    const {
+      classes: {
+        dialogActive: active,
+      },
+    } = this.config;
+
     this.score = 0;
+    this.items.forEach(item => {
+      ['data-dropped', 'data-x', 'data-y', 'style'].forEach(attribute => item.removeAttribute(attribute));
+    });
+
+    this.congratsDialog.classList.remove(active);
   }
 }
