@@ -28,6 +28,10 @@
 
 [data-mouseover] {
   filter: brightness(1.2);
+
+  & + img {
+    filter: brightness(1.2);
+  }
 }
 
 [data-correct] {

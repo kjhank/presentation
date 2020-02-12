@@ -9,14 +9,19 @@ export default class Game {
     };
     this.congratsDialog = document.querySelector('.game__congrats');
     this.items = document.querySelectorAll('.game__symptom');
+    this.audioElem = document.querySelector('[data-audio]');
     this.score = 0;
     this.init();
   }
 
   init() {
+    this.audioElem.play();
     interact('[data-symptom]').draggable({
       onstart: event => {
         const { target } = event;
+        const rotation = Math.floor(Math.random() * (110 - 70) + 70);
+
+        target.setAttribute('data-rotation', `${rotation}`);
         target.setAttribute('data-dragging', '');
         if (target.hasAttribute('data-dropped')) {
           this.score--;
@@ -27,7 +32,7 @@ export default class Game {
         const { target } = event;
         target.removeAttribute('data-dragging');
       },
-      onmove: (event) => {
+      onmove: event => {
         const {
           dx: deltaX,
           dy: deltaY,
@@ -40,8 +45,9 @@ export default class Game {
         const initialY = parseFloat(dataY) || 0;
         const newX = initialX + deltaX;
         const newY = initialY + deltaY;
+        const { rotation } = target.dataset;
 
-        target.style.transform = `translate(${newX}px, ${newY}px)`;
+        target.style.transform = `translate(${newX}px, ${newY}px) rotate(-${rotation}deg)`;
 
         target.setAttribute('data-x', newX);
         target.setAttribute('data-y', newY);
@@ -50,7 +56,7 @@ export default class Game {
 
     interact('.game__basket').dropzone({
       accept: '.game__symptom',
-      overlap: 0.05,
+      overlap: 0.5,
       ondragenter: event => {
         const { target: dropzone } = event;
         dropzone.setAttribute('data-mouseover', '');
@@ -76,8 +82,17 @@ export default class Game {
       }
 
       item.setAttribute('data-dropped', '');
+      this.audioElem.src = 'assets/sfx-correct.mp3';
+      this.audioElem.play();
       this.updateScore();
       this.checkScore();
+    } else {
+      this.audioElem.src = 'assets/sfx-incorrect.mp3';
+      this.audioElem.muted = false;
+      this.audioElem.play();
+      item.removeAttribute('style');
+      item.removeAttribute('data-x');
+      item.removeAttribute('data-y');
     }
   }
 
@@ -93,6 +108,8 @@ export default class Game {
     } = this.config;
 
     if (this.score === this.items.length) {
+      this.audioElem.src = 'assets/sfx-won.mp3';
+      this.audioElem.play();
       this.congratsDialog.classList.add(active);
     }
   }

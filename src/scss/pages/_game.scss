@@ -9,7 +9,7 @@
     right: 132px;
     left: 132px;
     width: 760px;
-    height: 40%;
+    height: 90%;
   }
 
   &__symptom {
@@ -137,6 +137,25 @@
       right: 0;
       bottom: 0;
     }
+
+    &-front {
+      position: absolute;
+      bottom: 0;
+      z-index: 3;
+      display: block;
+      width: 344px;
+      height: 258.5px;
+      transition: filter 0.4s;
+      pointer-events: none;
+
+      &--asthma {
+        left: 0;
+      }
+
+      &--codp {
+        right: 0;
+      }
+    }
   }
 
   &__grass {
@@ -192,5 +211,9 @@
         transform: scale(1) rotate(0);
       }
     }
+  }
+
+  & audio {
+    display: none;
   }
 }

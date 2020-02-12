@@ -7,14 +7,14 @@
   </head>
   <body style="background-image: url('assets/_bg.png');">
     <main class="presentation">
-      <section class="presentation__page presentation__page--start start" data-order="0" style="background-image: url('assets/_start-bg.png');" data-current>
+      <section class="presentation__page presentation__page--start start" data-order="0" style="background-image: url('assets/_start-bg.png');" data-previous>
         <nav class="start__navigation" style="background-image: url('assets/_bober.png');">
           <a href="#" class="start__play" data-play>
             <img src="assets/playbutton.png" alt class="start__play-btn">
           </a>
         </nav>
       </section>
-      <section class="presentation__page presentation__page--game game" data-order="1" data-next>
+      <section class="presentation__page presentation__page--game game" data-order="1" data-current>
         <nav class="game__symptoms">
           <article class="game__symptom game__symptom--0" data-all="true" data-symptom>
             <img src="assets/symptom-0-dusznosc-wydechowa.png" alt="" class="game__symptom-image">
@@ -76,11 +76,14 @@
           <article class="game__symptom game__symptom--17" data-illness="asthma" data-symptom>
             <img src="assets/symptom-17-astma-w-rodzinie.png" alt="" class="game__symptom-image">
           </article>
+          <article class="game__basket game__basket--asthma" data-illness="asthma" style="background-image: url('assets/basket-0-asthma.png');">
+          </article>
+          <img src="assets/basket-0-asthma-front.png" alt="" class="game__basket-front game__basket-front--asthma">
+          <article class="game__basket game__basket--codp" data-illness="codp" style="background-image: url('assets/basket-1-codp.png');">
+          </article>
+          <img src="assets/basket-1-codp-front.png" alt="" class="game__basket-front game__basket-front--codp">
         </nav>
-        <nav class="game__baskets">
-          <article class="game__basket game__basket--asthma" data-illness="asthma" style="background-image: url('assets/basket-0-asthma.png');"></article>
-          <article class="game__basket game__basket--codp" data-illness="codp" style="background-image: url('assets/basket-1-codp.png');"></article>
-        </nav>
+        <audio src="assets/sfx-correct.mp3" muted data-audio></audio>
         <img src="assets/_grass-z-front.png" alt class="game__grass game__grass--front">
         <img src="assets/_info.png" alt="" class="game__instructions">
         <div class="game__congrats" style="background-image: url('assets/_grats-bg.png');">
@@ -91,7 +94,7 @@
             </a></nav>
         </div>
       </section>
-      <section class="presentation__page presentation__page--end disclaimer" data-order="2">
+      <section class="presentation__page presentation__page--end disclaimer" data-order="2" data-next>
         <img class="disclaimer__message" src="assets/_disclaimer.png" />
         <nav class="disclaimer__nav nav">
           <a href="#" class="disclaimer__nav-link nav__link nav__link--home" data-nav-home data-goto="0">
