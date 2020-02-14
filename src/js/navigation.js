@@ -9,6 +9,7 @@ export default class Navigation {
     this.disclaimerPage = document.querySelector('.disclaimer');
     this.startPage = document.querySelector('.start');
     this.game = game;
+    this.audioElem = document.querySelector('[data-audio]');
 
     this.init();
   }
@@ -25,6 +26,9 @@ export default class Navigation {
 
   showGame(event) {
     event.preventDefault();
+    this.audioElem.play();
+    this.audioElem.src = 'assets/sfx-incorrect.mp3';
+    this.audioElem.muted = false;
     this.pages.forEach(page => page.removeAttribute('data-current'));
     this.pages.forEach(page => page.removeAttribute('data-next'));
     this.pages.forEach(page => page.removeAttribute('data-previous'));
