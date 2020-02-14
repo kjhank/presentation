@@ -6,8 +6,17 @@
 @import './ui/presentation';
 @import './ui/nav';
 
+html {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: radial-gradient(circle, rgba(35, 70, 105, 1) 0%, rgb(105, 126, 150) 100%);
+}
+
 body {
   width: 1024px;
   height: 768px;
-  background-size: cover;
+  background-position: center top;
+  background-size: 1024px 768px;
+  background-repeat: no-repeat;
 }

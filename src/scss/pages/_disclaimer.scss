@@ -4,6 +4,8 @@
   align-items: flex-start;
 
   &__message {
+    position: relative;
+    z-index: 6;
     width: 891.5px;
     height: 594.5px;
     margin: 56px 0 0;
