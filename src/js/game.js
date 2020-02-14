@@ -15,7 +15,6 @@ export default class Game {
   }
 
   init() {
-    this.audioElem.play();
     interact('[data-symptom]').draggable({
       onstart: event => {
         const { target } = event;
@@ -45,9 +44,9 @@ export default class Game {
         const initialY = parseFloat(dataY) || 0;
         const newX = initialX + deltaX;
         const newY = initialY + deltaY;
-        const { rotation } = target.dataset;
+        // const { rotation } = target.dataset;
 
-        target.style.transform = `translate(${newX}px, ${newY}px) rotate(-${rotation}deg)`;
+        target.style.transform = `translate(${newX}px, ${newY}px)`;
 
         target.setAttribute('data-x', newX);
         target.setAttribute('data-y', newY);
@@ -56,7 +55,7 @@ export default class Game {
 
     interact('.game__basket').dropzone({
       accept: '.game__symptom',
-      overlap: 0.5,
+      overlap: 0.05,
       ondragenter: event => {
         const { target: dropzone } = event;
         dropzone.setAttribute('data-mouseover', '');
@@ -71,6 +70,8 @@ export default class Game {
 
   handleDrop(event) {
     const { relatedTarget: item, target: dropzone } = event;
+    const { rotation } = item.dataset;
+
     dropzone.removeAttribute('data-mouseover');
     if (item.dataset.illness === dropzone.dataset.illness || item.dataset.all === 'true') {
       if (item.dataset.all === 'true') {
@@ -82,7 +83,9 @@ export default class Game {
       }
 
       item.setAttribute('data-dropped', '');
+      item.style.transform += ` rotate(-${rotation}deg)`;
       this.audioElem.src = 'assets/sfx-correct.mp3';
+      this.audioElem.muted = false;
       this.audioElem.play();
       this.updateScore();
       this.checkScore();
