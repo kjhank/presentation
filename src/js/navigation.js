@@ -10,6 +10,8 @@ export default class Navigation {
     this.startPage = document.querySelector('.start');
     this.game = game;
     this.audioElem = document.querySelector('[data-audio]');
+    this.musicElem = document.querySelector('[data-music]');
+    this.muteMusicButton = document.querySelector('[data-music-mute]');
 
     this.init();
   }
@@ -22,10 +24,27 @@ export default class Navigation {
     this.playBtn.addEventListener('click', event => this.showGame(event));
     this.nextBtn.addEventListener('click', event => this.showDisclaimer(event));
     this.homeBtn.addEventListener('click', event => this.goHome(event));
+    this.muteMusicButton.addEventListener('click', event => this.toggleMute(event));
+  }
+
+  toggleMute(event) {
+    event.preventDefault();
+
+    if (this.musicElem.paused) {
+      this.musicElem.play();
+    } else {
+      this.musicElem.pause();
+    }
+
+    this.muteMusicButton.querySelector('img:last-child').classList.toggle('game__music-image--hidden');
   }
 
   showGame(event) {
     event.preventDefault();
+    this.musicElem.play();
+    this.musicElem.src = 'assets/music.mp3';
+    this.musicElem.muted = false;
+    this.musicElem.play();
     this.audioElem.play();
     this.audioElem.src = 'assets/sfx-incorrect.mp3';
     this.audioElem.muted = false;

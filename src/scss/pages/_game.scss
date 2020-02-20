@@ -181,6 +181,43 @@
     pointer-events: none;
   }
 
+  &__music {
+    &-button {
+      position: absolute;
+      bottom: 130px;
+      left: 488px;
+      z-index: 8;
+      width: 43px;
+      height: 43px;
+      box-shadow: 0 0 35px rgba(#1b181b, 0.49);
+      border: none;
+      border-radius: 50%;
+      padding: 0;
+      background: transparent;
+
+      &:focus {
+        outline: none;
+      }
+    }
+
+    &-image {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      opacity: 1;
+      display: block;
+      width: 100%;
+      height: 100%;
+      transition: opacity 0.4s;
+
+      &--hidden {
+        opacity: 0;
+      }
+    }
+  }
+
   &__instructions {
     position: absolute;
     bottom: 0;
@@ -216,7 +253,7 @@
     }
 
     &--active {
-      z-index: 7;
+      z-index: 8;
       opacity: 1;
 
       #{$this}__congrats-box {
